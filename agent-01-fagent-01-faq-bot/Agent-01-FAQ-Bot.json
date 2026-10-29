@@ -1,0 +1,79 @@
+{
+  "name": "Agent-01-FAQ-Bot",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        0,
+        0
+      ],
+      "id": "dcca531c-6fd4-4525-a49b-c4c021cccd1b",
+      "name": "When chat message received",
+      "webhookId": "bd4a1611-0a32-46f8-b76e-eb83c5fb751c"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "={{ $json.chatInput }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        224,
+        0
+      ],
+      "id": "49491697-6b4d-49d5-bd44-44aa2f909447",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "q1Pr6T9xYfvVhVD8",
+          "name": "OpenAI account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "b1b558cd-f2e1-4c71-ad90-a71e551869d2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6404142a3bfc858feb6ed8efc83fb35b411e518259f70b782a034e632940605c"
+  },
+  "nodeGroups": [],
+  "id": "pEUbM7UGErCPkOZz",
+  "tags": []
+}
